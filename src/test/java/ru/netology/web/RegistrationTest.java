@@ -28,6 +28,7 @@ public class RegistrationTest {
         $("[data-test-id=notification]").shouldBe(visible, Duration.ofSeconds(15)).shouldHave(text("Успешно! Встреча успешно забронирована на " + LocalDate.now().plusDays(10).format(DateTimeFormatter.ofPattern(("dd.MM.yyyy")))));
     }
 
+
     @Test
     void shouldNotFillCity() {
         open("http://localhost:9999/");
@@ -42,6 +43,7 @@ public class RegistrationTest {
 
     }
 
+
     @Test
     void shouldNotFillDate() {
         open("http://localhost:9999/");
@@ -54,6 +56,7 @@ public class RegistrationTest {
         $("[data-test-id=date]").shouldHave(exactText("Неверно введена дата"));
     }
 
+
     @Test
     void shouldNotFillName() {
         open("http://localhost:9999/");
@@ -65,7 +68,6 @@ public class RegistrationTest {
         $("[data-test-id=agreement]").click();
         $(byText("Забронировать")).click();
         $("[data-test-id=name].input_invalid").shouldHave(exactText("Фамилия и имя Поле обязательно для заполнения"));
-
     }
 
     @Test
@@ -81,6 +83,7 @@ public class RegistrationTest {
         $("[data-test-id=phone].input_invalid").shouldHave(exactText("Мобильный телефон Поле обязательно для заполнения"));
 
     }
+
 
     @Test
     void shouldNotSubmitAgreement() {
