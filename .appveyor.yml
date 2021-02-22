@@ -7,6 +7,7 @@ branches:
 build: off  # будем использовать свой скрипт сборки
 
 install:
+  - chmod +x gradlew  #добавляем права на запуск
   # запускаем SUT (запоминаем информацию о процессе в переменной $App)
   - ps: $App = Start-Process -FilePath java -ArgumentList "-jar ./artifacts/app-card-delivery.jar" -PassThru
 
